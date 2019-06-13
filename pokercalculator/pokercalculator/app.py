@@ -17,7 +17,7 @@ class App:
                 "(Press Enter for default):\n")
             targetPath = App.__get_folder(nextLine, "poker_results.txt")
 
-            if Calculator(sourcePath).print_results(targetPath):
+            if (Calculator(sourcePath).print_results(targetPath)):
                 print("Successful results in your folder.\n")
             else:
                 print("There's been an error processing the information.\n")
