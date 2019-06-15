@@ -1,5 +1,6 @@
 from datetime import datetime
 from final_class import final
+from .hand import Hand
 
 
 @final
@@ -65,13 +66,11 @@ class Calculator:
             game_array = game.replace("\n", "").split(" ")
             n = len(game_array) + 1
 
-            handString1 = game_array[:n // 2]
-            handString2 = game_array[n // 2:]
+            handString1 = " ".join(game_array[:n // 2])
+            handString2 = " ".join(game_array[n // 2:])
 
-            hand1 = 1  # Hand(Hand.from_string(handString1))
-            hand2 = 2  # Hand(Hand.from_string(handString2))
-
-            print(str(handString1) + " - " + str(handString2))
+            hand1 = Hand(Hand.from_string(handString1))
+            hand2 = Hand(Hand.from_string(handString2))
 
             self.__winners[self.__check_winners(hand1, hand2)] += 1
 
@@ -101,10 +100,7 @@ class Calculator:
         pass
 
     def __check_winners(self, hand1, hand2):
-        hand1Rank = 1  # hand1.get_hand_rank().ordinal()
-        hand2Rank = 2  # hand2.get_hand_rank().ordinal()
-
-        winners = self.__check_winners_helper(hand1Rank, hand2Rank)
+        winners = self.__check_winners_helper(hand1.hand_rank, hand2.hand_rank)
         return winners if winners != 2 else self.__break_tie(hand1, hand2)
 
     def __check_winners_helper(self, num1, num2):

@@ -1,4 +1,4 @@
-import os
+from os import getcwd
 from final_class import final
 from .calculator import Calculator
 
@@ -28,6 +28,4 @@ class App:
 
     @staticmethod
     def __get_folder(line, file_name):
-        return (line + "\\"
-                if len(line) > 0
-                else os.getcwd() + "/") + file_name
+        return (line if len(line) > 0 else getcwd()) + "\\" + file_name
