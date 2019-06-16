@@ -1,3 +1,4 @@
+from collections import Counter
 from final_class import final
 from .hand_rank import HandRank
 from .card import Card
@@ -46,8 +47,8 @@ class Hand:
                 return HandRank.ROYAL_FLUSH
             return HandRank.STRAIGHT_FLUSH
 
-        (rank_number_mode,
-         rank_number_count) = Utility.get_frequency_tuple(rank_numbers)
+        frequency_dict = Counter(rank_numbers)
+        rank_number_count = (frequency_dict.most_common(1)[0])[1]
 
         if(rank_number_count == 4):
             return HandRank.FOUR_OF_A_KIND
@@ -64,9 +65,12 @@ class Hand:
         if (is_three_of_a_kind):
             return HandRank.THREE_OF_A_KIND
 
-        if (is_one_pair and rank_number_mode == 2):
-            return HandRank.TWO_PAIRS
+        most_commons_pairs = frequency_dict.most_common(2)
+
         if (is_one_pair):
+            if(all(freq[1] == 2
+                   for freq in most_commons_pairs)):
+                return HandRank.TWO_PAIRS
             return HandRank.ONE_PAIR
 
         return HandRank.HIGH_CARD
