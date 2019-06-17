@@ -18,7 +18,7 @@ It requires no other installation than having Python 3 latest stable release (3.
 
 ### Built with
 
-* [Visual Studio Code](https://code.visualstudio.com/) was the code editor harnessed for this, it requires extensions from [Python](https://code.visualstudio.com/docs/languages/python) - <https://marketplace.visualstudio.com/items?itemName=ms-python.python>, and I essentially used [Python Extension Pack](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack)
+* [Visual Studio Code](https://code.visualstudio.com/) was the code editor harnessed for this, it requires extensions from [Python](https://code.visualstudio.com/docs/languages/python) - <https://marketplace.visualstudio.com/items?itemName=ms-python.python>, and I essentially used [Python Extension Pack](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack).
 
 * [Pipenv](https://docs.pipenv.org/en/latest/) was used to setup and manage virtual environments and packages installations.
 
