@@ -1,3 +1,4 @@
+import traceback
 from datetime import datetime
 from collections import Counter
 from final_class import final
@@ -50,8 +51,9 @@ class Calculator:
 
             file.writelines("\n".join(lines))
             return True
-        except (FileNotFoundError, TypeError) as e:
-            print(str(e))
+        except Exception as e:
+            traceback.print_exc()
+            print(e)
             return False
         finally:
             file.close()
@@ -83,8 +85,9 @@ class Calculator:
         try:
             file = open(file_path, "r")
             return '-'.join(file)
-        except (FileNotFoundError, TypeError) as e:
-            print(str(e))
+        except Exception as e:
+            traceback.print_exc()
+            print(e)
             return None
         finally:
             file.close()

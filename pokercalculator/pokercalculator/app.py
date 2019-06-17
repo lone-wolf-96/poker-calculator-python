@@ -1,4 +1,5 @@
 from os import getcwd
+import traceback
 from final_class import final
 from .calculator import Calculator
 
@@ -24,7 +25,8 @@ class App:
             else:
                 print("There's been an error processing the information.\n")
         except Exception as e:
-            print(str(e))
+            traceback.print_exc()
+            print(e)
 
     @staticmethod
     def __get_folder(line, file_name):
