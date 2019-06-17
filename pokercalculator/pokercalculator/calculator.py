@@ -48,7 +48,7 @@ class Calculator:
             now = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
             lines.append("Date and Time: " + now)
 
-            file.writelines(["\n".join(lines), "\n"])
+            file.writelines("\n".join(lines))
             return True
         except (FileNotFoundError, TypeError) as e:
             print(str(e))
