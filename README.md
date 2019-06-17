@@ -1,10 +1,16 @@
-# Poker Calculator in Python
+# [Poker Calculator in Python](https://github.com/lone-wolf-96/poker-calculator-python/)
 
-A demo that 'calculates' the winning poker hand between 2 players through algorithms. This is the Python version of [Poker Calculator in Java](https://github.com/lone-wolf-96/poker-calculator/).
+A demo that 'calculates' the winning poker hand between 2 players through algorithms.
+This is the Python version of:
+
+* [Poker Calculator in Java](https://github.com/lone-wolf-96/poker-calculator-java/)
+* [Poker Calculator in C#](https://github.com/lone-wolf-96/poker-calculator-csharp/)
+* [Poker Calculator in JavaScript](https://github.com/lone-wolf-96/poker-calculator-js/)
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Probably needed: [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
 
 ### Installation
 
