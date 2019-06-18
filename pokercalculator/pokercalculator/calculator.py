@@ -69,10 +69,11 @@ class Calculator:
 
         for game in poker_array:
             game_array = game.replace("\n", "").split(" ")
-            n = len(game_array) + 1
 
-            handString1 = " ".join(game_array[:n // 2])
-            handString2 = " ".join(game_array[n // 2:])
+            n = (len(game_array) + 1) // 2
+
+            handString1 = " ".join(game_array[:n])
+            handString2 = " ".join(game_array[n:])
 
             hand1 = Hand(Hand.from_string(handString1))
             hand2 = Hand(Hand.from_string(handString2))
