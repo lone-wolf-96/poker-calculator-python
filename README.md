@@ -52,11 +52,13 @@ For linting: [Pylint](https://www.pylint.org/), [Flake8](http://flake8.pycqa.org
 "python.linting.pep8Enabled": true
 ```
 
-And for testing matters: [Pytest](https://pytest.org/).
+For testing matters: [Pytest](https://pytest.org/).
 
 ```json
 "python.testing.pyTestEnabled": true
 ```
+
+And for autoformatting: [autopep8](https://pypi.org/project/autopep8/).
 
 Other ways to run/debug is up to you.
 

@@ -36,7 +36,7 @@ class Hand:
     def __evaluate(self):
         cards_in_hand = self.cards
         is_flush = len(set(map(
-            lambda card: card.suit, cards_in_hand))) == 1
+            lambda card: card.suit.suit_value, cards_in_hand))) == 1
 
         rank_numbers = sorted(
             [card.rank.rank_number for card in cards_in_hand])
@@ -68,8 +68,7 @@ class Hand:
         most_commons_pairs = frequency_dict.most_common(2)
 
         if (is_one_pair):
-            if(all(freq[1] == 2
-                   for freq in most_commons_pairs)):
+            if(all(freq[1] == 2 for freq in most_commons_pairs)):
                 return HandRank.TWO_PAIRS
             return HandRank.ONE_PAIR
 

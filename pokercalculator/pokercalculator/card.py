@@ -23,12 +23,6 @@ class Card:
         rank = Rank.get_rank_by_rank_value(input[0])
         suit = Suit(input[1])  # or Suit.get_suit_by_suit_value(input[1])
 
-        if rank is None:
-            raise TypeError("Invalid rank.")
-
-        if suit is None:
-            raise TypeError("Invalid suit.")
-
         return Card(rank, suit)
 
     def to_string_name(self):
