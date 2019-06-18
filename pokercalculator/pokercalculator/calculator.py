@@ -33,8 +33,7 @@ class Calculator:
             lines = [f"Total Games: {games}"]
 
             for i in range(3):
-                s = f"{(i + 1)}: {winners[i]}"
-                lines.append(s)
+                lines.append(f"{(i + 1)}: {winners[i]}")
 
             p1_percentage = "%.2f" % ((winners[0] / games) * 100)
             p2_percentage = "%.2f" % ((winners[1] / games) * 100)
