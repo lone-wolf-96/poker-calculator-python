@@ -34,6 +34,10 @@ These other articles might be helpful: [How to manage your Python projects with 
 
 ### Bear-in-mind
 
+About Pipenv, if you want your virtual environment to be created inside your project, execute this command using shell/bash before `pipenv install [--dev]`:
+
+`export PIPENV_VENV_IN_PROJECT=1`
+
 There may be some complications cause of Python Extension, such as unresolved imports or else.
 So, this options in the generated settings.json file could be helpful:
 
