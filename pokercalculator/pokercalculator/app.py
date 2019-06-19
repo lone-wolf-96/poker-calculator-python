@@ -13,12 +13,12 @@ class App:
             next_line = input(
                 "Enter the pokerdata.txt source directory" +
                 "(Press Enter for default):\n")
-            source_path = App.__get_folder(next_line, "pokerdata.txt")
+            source_path = App.__get_folder(next_line) + "pokerdata.txt"
 
             next_line = input(
-                "Enter the poker_results.txt target directory" +
+                "Enter the target directory" +
                 "(Press Enter for default):\n")
-            target_path = App.__get_folder(next_line, "poker_results.txt")
+            target_path = App.__get_folder(next_line)
 
             if (Calculator(source_path).print_results(target_path)):
                 print("Successful results in your folder.\n")
@@ -29,5 +29,7 @@ class App:
             print(e)
 
     @staticmethod
-    def __get_folder(line, file_name):
-        return (line if len(line) > 0 else getcwd()) + "\\" + file_name
+    def __get_folder(line):
+        if (len(line) > 0):
+            return line + ("" if line[len(line) - 1] == "\\" else "\\")
+        return getcwd() + "\\"

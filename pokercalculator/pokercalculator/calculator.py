@@ -13,6 +13,7 @@ class Calculator:
     def __init__(self, filePath):
         self.__winners = [0, 0, 0]
         self.__games = 0
+        self.__messages = []
         self.__calculate(filePath)
 
     @property
@@ -25,12 +26,16 @@ class Calculator:
 
     def print_results(self, file_path):
         try:
-            file = open(file_path, "w")
+            dateFormat = ("Date and Time: " +
+                          datetime.now().strftime("%d-%m-%Y %H:%M:%S"))
+
+            fileReport = open(file_path + "poker_results_report.txt", "w")
+            fileResult = open(file_path + "poker_results.txt", "w")
 
             winners = self.winners
             games = self.games
 
-            lines = [f"Total Games: {games}"]
+            lines = []
 
             for i in range(3):
                 lines.append(f"{(i + 1)}: {winners[i]}")
@@ -45,17 +50,21 @@ class Calculator:
                           "---------------------------- |" +
                           " ----------------------------"])
 
-            now = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-            lines.append("Date and Time: " + now)
+            lines.append(f"Total Games: {games}")
 
-            file.writelines("\n".join(lines))
+            lines.append(dateFormat)
+            self.__messages.append(dateFormat)
+
+            fileReport.writelines("\n".join(lines))
+            fileResult.writelines("\n".join(self.__messages))
+
             return True
         except Exception as e:
             traceback.print_exc()
             print(e)
             return False
         finally:
-            file.close()
+            fileReport.close()
 
     def __calculate(self, file_path):
         poker_data = self.__get_poker_data(file_path)
@@ -77,9 +86,16 @@ class Calculator:
             hand1 = Hand(Hand.from_string(handString1))
             hand2 = Hand(Hand.from_string(handString2))
 
-            x = self.__check_winners(hand1, hand2)
+            winnerIndex = self.__check_winners(hand1, hand2)
+            winnerMessage = ("Winner " + str(winnerIndex + 1)
+                             if winnerIndex < 2 else "Draw")
 
-            self.__winners[x] += 1
+            self.__messages.append(winnerMessage + " : " +
+                                   hand1.hand_rank.name.replace('_', ' ') +
+                                   " - " +
+                                   hand2.hand_rank.name.replace('_', ' '))
+
+            self.__winners[winnerIndex] += 1
 
     def __get_poker_data(self, file_path):
         try:

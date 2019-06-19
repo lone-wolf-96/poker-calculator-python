@@ -20,7 +20,7 @@ def test_get_games():
 
 
 def test_print_results():
-    file_path_target = getcwd() + "\\" + "poker_results.txt"
+    file_path_target = getcwd() + "\\"
     assert Calculator(
         FILE_PATH_SOURCE).print_results(file_path_target) is True
 
