@@ -1,13 +1,11 @@
 import traceback
 from datetime import datetime
 from collections import Counter
-from final_class import final
 from .hand import Hand
 from .hand_rank import HandRank
 from .utility import Utility
 
 
-@final
 class Calculator:
 
     def __init__(self, filePath):

@@ -1,7 +1,3 @@
-from final_class import final
-
-
-@final
 class Utility:
 
     @staticmethod

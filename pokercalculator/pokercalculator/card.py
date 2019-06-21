@@ -1,9 +1,7 @@
-from final_class import final
 from .suit import Suit
 from .rank import Rank
 
 
-@final
 class Card:
 
     def __init__(self, rank, suit):

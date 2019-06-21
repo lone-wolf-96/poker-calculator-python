@@ -1,12 +1,10 @@
 from collections import Counter
-from final_class import final
 from .hand_rank import HandRank
 from .card import Card
 from .rank import Rank
 from .utility import Utility
 
 
-@final
 class Hand:
 
     HAND_SIZE = 5

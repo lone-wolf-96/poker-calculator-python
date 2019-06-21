@@ -1,10 +1,8 @@
 from os import getcwd
 import traceback
-from final_class import final
 from .calculator import Calculator
 
 
-@final
 class App:
 
     @staticmethod
