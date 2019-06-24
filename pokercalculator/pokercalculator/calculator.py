@@ -8,11 +8,11 @@ from .utility import Utility
 
 class Calculator:
 
-    def __init__(self, filePath):
+    def __init__(self, file_path):
         self.__winners = [0, 0, 0]
         self.__games = 0
         self.__messages = []
-        self.__calculate(filePath)
+        self.__calculate(file_path)
 
     @property
     def winners(self):
