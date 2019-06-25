@@ -62,6 +62,7 @@ class Calculator:
             print(e)
             return False
         finally:
+            fileResult.close()
             fileReport.close()
 
     def __calculate(self, file_path):
