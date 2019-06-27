@@ -9,12 +9,12 @@ class App:
     def main():
         try:
             next_line = input(
-                "Enter the pokerdata.txt source directory" +
+                "Enter the pokerdata.txt source directory " +
                 "(Press Enter for default):\n")
             source_path = App.__get_folder(next_line) + "pokerdata.txt"
 
             next_line = input(
-                "Enter the target directory" +
+                "Enter the target directory " +
                 "(Press Enter for default):\n")
             target_path = App.__get_folder(next_line)
 
