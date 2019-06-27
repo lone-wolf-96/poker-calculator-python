@@ -1,6 +1,6 @@
-from pokercalculator.pokercalculator.card import Card
-from pokercalculator.pokercalculator.rank import Rank
-from pokercalculator.pokercalculator.suit import Suit
+from pokercalculator.card import Card
+from pokercalculator.rank import Rank
+from pokercalculator.suit import Suit
 
 
 def test_card():

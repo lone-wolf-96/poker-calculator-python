@@ -1,5 +1,5 @@
 from os import getcwd
-from pokercalculator.pokercalculator.calculator import Calculator
+from pokercalculator.calculator import Calculator
 
 
 FILE_PATH_SOURCE = getcwd() + "\\" + "pokerdata.txt"

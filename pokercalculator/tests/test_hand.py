@@ -1,8 +1,8 @@
-from pokercalculator.pokercalculator.hand import Hand
-from pokercalculator.pokercalculator.hand_rank import HandRank
-from pokercalculator.pokercalculator.card import Card
-from pokercalculator.pokercalculator.rank import Rank
-from pokercalculator.pokercalculator.suit import Suit
+from pokercalculator.hand import Hand
+from pokercalculator.hand_rank import HandRank
+from pokercalculator.card import Card
+from pokercalculator.rank import Rank
+from pokercalculator.suit import Suit
 
 
 def test_hand():
