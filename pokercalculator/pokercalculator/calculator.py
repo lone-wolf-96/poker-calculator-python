@@ -24,46 +24,44 @@ class Calculator:
 
     def print_results(self, file_path):
         try:
-            dateFormat = ("Date and Time: " +
-                          datetime.now().strftime("%d-%m-%Y %H:%M:%S"))
+            with open(file_path +
+                      "poker_results_report.txt", "w") as fileReport, \
+                open(file_path +
+                     "poker_results.txt", "w") as fileResult:
+                dateFormat = ("Date and Time: " +
+                              datetime.now().strftime("%d-%m-%Y %H:%M:%S"))
 
-            fileReport = open(file_path + "poker_results_report.txt", "w")
-            fileResult = open(file_path + "poker_results.txt", "w")
+                winners = self.winners
+                games = self.games
 
-            winners = self.winners
-            games = self.games
+                lines = []
 
-            lines = []
+                for i in range(3):
+                    lines.append(f"{(i + 1)}: {winners[i]}")
 
-            for i in range(3):
-                lines.append(f"{(i + 1)}: {winners[i]}")
+                p1_percentage = "%.2f" % ((winners[0] / games) * 100)
+                p2_percentage = "%.2f" % ((winners[1] / games) * 100)
+                lines.extend(["4:",
+                              "--------- PLAYER 1 --------- |" +
+                              " --------- PLAYER 2 ---------",
+                              f"           {p1_percentage}%            |" +
+                              f"             {p2_percentage}%          ",
+                              "---------------------------- |" +
+                              " ----------------------------"])
 
-            p1_percentage = "%.2f" % ((winners[0] / games) * 100)
-            p2_percentage = "%.2f" % ((winners[1] / games) * 100)
-            lines.extend(["4:",
-                          "--------- PLAYER 1 --------- |" +
-                          " --------- PLAYER 2 ---------",
-                          f"           {p1_percentage}%            |" +
-                          f"             {p2_percentage}%          ",
-                          "---------------------------- |" +
-                          " ----------------------------"])
+                lines.append(f"Total Games: {games}")
 
-            lines.append(f"Total Games: {games}")
+                lines.append(dateFormat)
+                self.__messages.append(dateFormat)
 
-            lines.append(dateFormat)
-            self.__messages.append(dateFormat)
+                fileReport.writelines("\n".join(lines))
+                fileResult.writelines("\n".join(self.__messages))
 
-            fileReport.writelines("\n".join(lines))
-            fileResult.writelines("\n".join(self.__messages))
-
-            return True
+                return True
         except Exception as e:
             traceback.print_exc()
             print(e)
             return False
-        finally:
-            fileResult.close()
-            fileReport.close()
 
     def __calculate(self, file_path):
         poker_data = self.__get_poker_data(file_path)
@@ -98,14 +96,12 @@ class Calculator:
 
     def __get_poker_data(self, file_path):
         try:
-            file = open(file_path, "r")
-            return '-'.join(file)
+            with open(file_path, "r") as file:
+                return '-'.join(file)
         except Exception as e:
             traceback.print_exc()
             print(e)
             return None
-        finally:
-            file.close()
 
     def __break_tie(self, hand1, hand2):
         rank = hand1.hand_rank
