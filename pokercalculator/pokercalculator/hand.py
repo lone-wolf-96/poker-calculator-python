@@ -36,8 +36,8 @@ class Hand:
         is_flush = len(set(map(
             lambda card: card.suit.suit_value, cards_in_hand))) == 1
 
-        rank_numbers = sorted(
-            [card.rank.rank_number for card in cards_in_hand])
+        rank_numbers = [card.rank.rank_number for card in cards_in_hand]
+        rank_numbers.sort()
         is_straight = self.__is_straight(rank_numbers)
 
         if (is_flush and is_straight):

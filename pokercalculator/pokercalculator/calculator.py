@@ -109,10 +109,12 @@ class Calculator:
         if (rank is HandRank.ROYAL_FLUSH):
             return 2
 
-        rank_numbers_1 = sorted(list(card.rank.rank_number
-                                     for card in hand1.cards))
-        rank_numbers_2 = sorted(list(card.rank.rank_number
-                                     for card in hand2.cards))
+        rank_numbers_1 = list(card.rank.rank_number
+                              for card in hand1.cards)
+        rank_numbers_1.sort()
+        rank_numbers_2 = list(card.rank.rank_number
+                              for card in hand2.cards)
+        rank_numbers_2.sort()
 
         if (rank in [HandRank.STRAIGHT_FLUSH, HandRank.STRAIGHT]):
             return self.__break_tie_straight(rank_numbers_1, rank_numbers_2)
